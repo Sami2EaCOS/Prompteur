@@ -39,13 +39,15 @@ public class Prompteur {
         XSLFTextParagraph paragraph = shape.addNewTextParagraph();
         XSLFTextRun run = paragraph.addNewTextRun();
         run.setText(str);
-        run.setFontSize(60.D);
+        run.setFontSize(80.D);
 
         paragraph.addLineBreak();
         Dimension dimension = ppt.getPageSize();
+        System.out.println(dimension.getHeight());
+        System.out.println(shape.getTextHeight());
         shape.setAnchor(new Rectangle(
                 0,
-                (int) (dimension.getHeight() / 2 - shape.getTextHeight()),
+                (int) (dimension.getHeight() / 2 - shape.getTextHeight() / 3),
                 (int) ppt.getPageSize().getWidth(),
                 (int) shape.getTextHeight()
         ));
@@ -57,7 +59,7 @@ public class Prompteur {
             ppt.write(out);
             out.close();
 
-            System.out.println("Votre fichier \"prompteur.pptx\" a bien été créé.");
+            System.out.println("Votre fichier \"prompteur.pptx\" est maintenant disponible.");
         } catch (IOException e) {
             e.printStackTrace();
         }
