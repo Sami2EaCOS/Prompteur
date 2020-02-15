@@ -43,8 +43,6 @@ public class Prompteur {
 
         paragraph.addLineBreak();
         Dimension dimension = ppt.getPageSize();
-        System.out.println(dimension.getHeight());
-        System.out.println(shape.getTextHeight());
         shape.setAnchor(new Rectangle(
                 0,
                 (int) (dimension.getHeight() / 2 - shape.getTextHeight() / 3),
